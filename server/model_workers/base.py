@@ -29,7 +29,7 @@ class ApiModelWorker(BaseModelWorker):
         model_names: List[str],
         controller_addr: str,
         worker_addr: str,
-        context_len: int = 2048,
+        context_len: int = 20480,
         **kwargs,
     ):
         kwargs.setdefault("worker_id", uuid.uuid4().hex[:8])

@@ -78,6 +78,8 @@ class KBFaissPool(_FaissPool):
                 if os.path.isfile(os.path.join(vs_path, "index.faiss")):
                     embeddings = self.load_kb_embeddings(kb_name=kb_name, embed_device=embed_device)
                     vector_store = FAISS.load_local(vs_path, embeddings, normalize_L2=True)
+                    # from langchain.vectorstores.utils import DistanceStrategy
+                    # vector_store = FAISS.load_local(vs_path, embeddings, normalize_L2=False, distance_strategy=DistanceStrategy.COSINE)
                 elif create:
                     # create an empty vector store
                     if not os.path.exists(vs_path):
